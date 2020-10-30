@@ -12,18 +12,20 @@ function writePassword() {
   do{
     passLength = prompt("How long would you like the password? (8-128 characters)");
   } while (passLength < 8 || passLength > 128);
-  if(confirm("Do you want to include uppercase letters?")){
-    charSet = charSet.concat(upperCase)
+  do{
+    if(confirm("Do you want to include uppercase letters?")){
+      charSet = charSet.concat(upperCase)
+    };
+    if(confirm("Do you want to include lowercase letters?")){
+      charSet = charSet.concat(lowerCase);
+    };
+    if(confirm("Do you want to include numbers?")){
+      charSet = charSet.concat(numbers);
+    };
+    if(confirm("Do you want to include special characters?")){
+      charSet = charSet.concat(special);
   };
-  if(confirm("Do you want to include lowercase letters?")){
-    charSet = charSet.concat(lowerCase);
-  };
-  if(confirm("Do you want to include numbers?")){
-    charSet = charSet.concat(numbers);
-  };
-  if(confirm("Do you want to include special characters?")){
-    charSet = charSet.concat(special);
-  };
+  } while (charSet.length < 1);
   
   function generatePassword(){
     var pass = "";
